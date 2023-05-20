@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: Redhat
   tasks:
   - name: Disable SELinux
     selinux:
@@ -17,8 +17,8 @@
 
   - name: Download template
     get_url:
-      url: https://www.free-css.com/assets/files/free-css-templates/download/page285/bitcypo.zip
-      dest: /tmp/bitcypo.zip
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page290/energym.zip
+      dest: /tmp/energym.zip
 
   - name: Install Unzip
     yum:
@@ -27,12 +27,12 @@
 
   - name: Extract a template
     unarchive:
-      src: /tmp/bitcypo.zip
+      src: /tmp/energym.zip
       dest: /tmp/
       remote_src: yes
 
   - name: Move templates files to /var/www/html
-    shell: "mv /tmp/bitcypo-html/* /var/www/html/"
+    shell: "mv /tmp/energym-html/* /var/www/html/"
     args:
       creates: /var/www/html/index.html 
 
